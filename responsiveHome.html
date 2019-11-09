@@ -9,7 +9,15 @@
   <link rel="stylesheet" media="screen" href="style.css">
 </head>
 <body>
-<nav id="navbar">
+
+<!-- count particles -->
+<!--<div class="count-particles">
+  <span class="js-count-particles">--</span> particles
+</div>-->
+
+<!-- particles.js container -->
+<div id="particles-js">
+  <nav id="navbar">
         <ul>
             <li><a href="index.html" class="home">Home</a></li>
             <li class="dropdown">
@@ -47,17 +55,16 @@
             </li>
         </ul>
     </nav>
-    <h1>Welcome to docket science!</h1>
+    <br>
+      <p style="color: yellow;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute"id="title">Welcome to docket science!</p>
+      <div id="heading" contenteditable="true"></div>
+    <br>
+    <div id="content" contenteditable="true"></div>
+</div>
 
-<!-- count particles -->
-<!--<div class="count-particles">
-  <span class="js-count-particles">--</span> particles
-</div>-->
-
-<!-- particles.js container -->
-<div id="particles-js"></div>
 
 <!-- scripts -->
+<script src="localStorage.js"></script>
 <script src="particles.js"></script>
 <script src="app.js"></script>
 
