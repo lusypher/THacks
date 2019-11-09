@@ -5,7 +5,8 @@
   <title>Docket Science!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" media="screen" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -59,8 +60,65 @@
       <div id="heading" contenteditable="true"></div>
     <br>
     <div id="content" contenteditable="true"></div>
-</div>
+    <button id="download" onclick="saveAs()">Download</button>
+    <input type='button' value='Send Data' id='mybutt'>
+    <a href="#" id="downloadLink">Download the inner html</a>
+    <input type="button" id="btSave" value="Save Text to File" />
 
+</div>
+<script>
+    $(document).ready(function() {
+        $('#content').focus();
+
+        $('#btSave').click(function() {
+
+            if ($('#content').text() != '')
+                saveFile($('#content').text());
+            else
+                alert('No notes to save');
+        });
+    });
+
+    // USING BLOB (BINARY LARGE OBJECT) TO SAVE THE TEXT.
+
+    function saveFile(Value) {
+
+        // CONVERT THE TEXT TO A BLOB.
+        var textToBLOB = new Blob([Value], { type: 'text/plain' });
+        var sFileName = 'myFile.txt';       // THE FILE IN WHICH THE CONTENTS WILL BE SAVED.
+
+        var newLink = document.createElement("a");
+        newLink.download = sFileName;
+
+        if (window.webkitURL != null) {
+            newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+        }
+        else {
+            newLink.href = window.URL.createObjectURL(textToBLOB);
+            newLink.style.display = "none";
+            document.body.appendChild(newLink);
+        }
+
+        newLink.click();
+    }
+</script>
+<script>
+function saveAs(filename, allHtml) {
+allHtml =  document.getElementsByClassName('big_wrapper');
+var blob = new Blob([allHtml], {type: 'text/csv'});
+if(window.navigator.msSaveOrOpenBlob) {
+window.navigator.msSaveBlob(blob, filename);
+}
+else{
+var elem = window.document.createElement('a');
+elem.href = window.URL.createObjectURL(blob);
+elem.download = filename;
+document.body.appendChild(elem);
+elem.click();
+document.body.removeChild(elem);
+}
+}
+</script>
 
 <!-- scripts -->
 <script src="localStorage.js"></script>
