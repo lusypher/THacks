@@ -1,19 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="utf-8">
+  <title>Docket Science!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" media="screen" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<p id="myP"></p>
 
-<button onclick="myFunction()">Create Doc</button>
-<button>Save</button>
+<!-- count particles -->
+<!--<div class="count-particles">
+  <span class="js-count-particles">--</span> particles
+</div>-->
 
+<!-- particles.js container -->
+<div id="particles-js">
+  <nav id="navbar">
+        <ul>
+            <li><a href="index.html" class="home">Home</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">List &#8964</a>
+                <div class="dropdown-content">
+                    <a href="https://www.zybooks.com/" target="_blank">ZyBooks</a>
+                    <a href="https://tophat.com/" target="_blank">TopHat</a>
+                    <a href="https://drive.google.com/open?id=1AsHhIFfQ3yNE_m2z4wswRfKh77K0UH9w" target="_blank">Course Google Drive</a>
+                    <a href="https://www.w3schools.com/" target="_blank">W3Schools</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">About &#8964</a>
+                <div class="dropdown-content">
+                    <a href="#">About The Developer</a>
+                    <a href="#">Contact</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Browser &#8964</a>
+                <div class="dropdown-content">
+                    <a href="#">Navigator</a>
+                    <a href="#">Window</a>
+                    <a href="#">Screen</a>
+                    <a href="#">Location</a>
+                    <a href="#">Geolocation</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Search &#8964</a>
+                <div class="dropdown-content">
+                    <a href="#">Phase 2: From File</a>
+                    <a href="#">Phase 2: Google API</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <br>
+      <p style="color: yellow;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute"id="title">Welcome to docket science!<i style="font-size:50px" class="fa">&#xf135;</i></p>
+      <div id="heading" contenteditable="true"></div>
+    <br>
+    <div id="content" contenteditable="true"></div>
+</div>
+
+
+<!-- scripts -->
+<script src="localStorage.js"></script>
+<script src="particles.js"></script>
+<script src="app.js"></script>
+
+<!-- stats.js -->
+<!--<script src="stats.js"></script>-->
 <script>
-function myFunction() {
-  document.getElementById("myP").contentEditable = true;
-}
+  var count_particles, stats, update;
+  stats = new Stats;
+  stats.setMode(0);
+  stats.domElement.style.position = 'absolute';
+  stats.domElement.style.left = '0px';
+  stats.domElement.style.top = '0px';
+  document.body.appendChild(stats.domElement);
+  count_particles = document.querySelector('.js-count-particles');
+  update = function() {
+    stats.begin();
+    stats.end();
+    if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+      count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+    }
+    requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
 </script>
+
 </body>
 </html>
