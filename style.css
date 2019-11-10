@@ -86,11 +86,10 @@ li.dropdown {
   padding-top: 10px;
   font-size: 24px;
   border: solid;
-  border-color: white;
-  border-width: thick;
+  background-color: black;
+  opacity: 90%;
 
   color: white;
-  background: transparent;
   height: 500px;
   width: 500px;
   position: absolute;
@@ -101,7 +100,7 @@ li.dropdown {
 
     position: absolute;
     left: 40%;
-    top: 98%;
+    top: 105%;
 
 }
 .results {

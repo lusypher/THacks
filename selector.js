@@ -13,7 +13,7 @@ function deselectAll() {
         indivResults[i].children[0].checked = false;
     }
 }
-function countClicks() {
+function clickCounter() {
   if (typeof(Storage) !== "undefined") {
     if (localStorage.clickcount) {
       localStorage.clickcount = Number(localStorage.clickcount)+1;
