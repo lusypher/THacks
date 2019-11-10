@@ -43,12 +43,15 @@
         </ul>
     </nav>
     <br>
-          <p style="color: yellow;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%"id="title">Welcome to docket science!<i style="font-size:50px" class="fa">&#xf135;</i></p>
+    <p style="color: yellow;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%"id="title">Welcome to</p>
+    <p style="color: indianred;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%; left: 19%">docket</p>
+    <p style="color: #4588ba;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%; left: 31%">science</p>
+    <p style="color: yellow;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%; left: 44%">!<i style="font-size:50px" class="fa">&#xf135;</i></p>
 
-      <div id="heading" contenteditable="true"></div>
+
     <br>
-    <div id="content" contenteditable="true"></div>
-    <input type="button" id="btSave" value="Save Text to File" />
+    <div id="content" contenteditable="true">Write anything here...</div>
+    <input class="btn navbar-btn" style="background-color: indianred" type="button" id="btSave" value="Save Text to File" />
 
 </div>
 <script>
@@ -70,10 +73,11 @@
 
         // CONVERT THE TEXT TO A BLOB.
         var textToBLOB = new Blob([Value], { type: 'text/plain' });
-        var sFileName = (#heading).pa +'.txt';       // THE FILE IN WHICH THE CONTENTS WILL BE SAVED.
+        var name = prompt("Please name your file (without extension): ");
+        name = name + ".txt";// THE FILE IN WHICH THE CONTENTS WILL BE SAVED.
 
         var newLink = document.createElement("a");
-        newLink.download = sFileName;
+        newLink.download = name
 
         if (window.webkitURL != null) {
             newLink.href = window.webkitURL.createObjectURL(textToBLOB);

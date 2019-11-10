@@ -91,11 +91,11 @@ li.dropdown {
 
   color: white;
   background: transparent;
-  height: 300px;
-  width: 300px;
+  height: 500px;
+  width: 500px;
   position: absolute;
-  left: 40%;
-  top: 50%;
+  left: 30%;
+  top: 30%;
 }
 #btSave {
 
