@@ -14,11 +14,6 @@
 </head>
 <body>
 
-<!-- count particles -->
-<!--<div class="count-particles">
-  <span class="js-count-particles">--</span> particles
-</div>-->
-
 <!-- particles.js container -->
 <div id="particles-js">
   <nav id="navbar">
@@ -55,10 +50,30 @@
     <p style="color: yellow;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%; left: 44%">!<i style="font-size:50px" class="fa">&#xf135;</i></p>
 
 
-    <br>
+    <br><br><br><br><br><br><br>
+    <button type="button" class="collapsible">Open Collapsible</button>
+<div class="content">
+  <p>Lorem ipsum...</p>
+</div>
 
 
 </div>
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
 
 
 
