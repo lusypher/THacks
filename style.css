@@ -8,7 +8,6 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{di
 nav ul{list-style:none}
 blockquote,q{quotes:none}
 blockquote:before,blockquote:after,q:before,q:after{content:none}
-a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent;text-decoration:none}
 mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
 del{text-decoration:line-through}
 abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
@@ -20,19 +19,20 @@ li {
   float: left;
   text-align: center;
 }
-a {
-  text-align: center;
-}
 
-a.home {
-  padding-top: 16.5px
+li.home {
+    margin-top: 10px;
+    padding: 14px 16px;
+    color: white;
+    font-size: x-large;
+    text-align: center;
 }
 li a, .dropbtn {
   display: inline-block;
-  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+    color: midnightblue;
 }
 
 li a:hover, .dropdown:hover .dropbtn {
@@ -96,6 +96,19 @@ li.dropdown {
   position: absolute;
   left: 40%;
   top: 50%;
+}
+.results {
+  background: transparent;
+  position: absolute;
+  left: 40%;
+  top: 50%;
+}
+#btSave {
+
+    position: absolute;
+    left: 40%;
+    top: 98%;
+
 }
 
 

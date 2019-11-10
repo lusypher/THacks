@@ -7,6 +7,9 @@
   <link rel="stylesheet" media="screen" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -19,50 +22,31 @@
 <div id="particles-js">
   <nav id="navbar">
         <ul>
-            <li><a href="index.html" class="home">Home</a></li>
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn">List &#8964</a>
-                <div class="dropdown-content">
-                    <a href="https://www.zybooks.com/" target="_blank">ZyBooks</a>
-                    <a href="https://tophat.com/" target="_blank">TopHat</a>
-                    <a href="https://drive.google.com/open?id=1AsHhIFfQ3yNE_m2z4wswRfKh77K0UH9w" target="_blank">Course Google Drive</a>
-                    <a href="https://www.w3schools.com/" target="_blank">W3Schools</a>
-                </div>
+            <li class="home"><i class="fa">&#xf135;</i></li>
+            <li><a href="#"><button class="btn navbar-btn" style="background-color: yellow; border-radius: 50%;margin-left: 10px">About</button></a></li>
+            <li>
+                <a href="index.html">
+                <button class="btn navbar-btn" style="background-color: yellow; border-radius: 50%;margin-left: 10px">Create</button>
+                </a>
             </li>
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn">About &#8964</a>
-                <div class="dropdown-content">
-                    <a href="#">About The Developer</a>
-                    <a href="#">Contact</a>
-                </div>
+            <li>
+                <a href="toDoList.html">
+                <button class="btn navbar-btn" style="background-color: yellow; border-radius: 50%;margin-left: 10px">Search</button>
+                </a>
             </li>
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn">Browser &#8964</a>
-                <div class="dropdown-content">
-                    <a href="#">Navigator</a>
-                    <a href="#">Window</a>
-                    <a href="#">Screen</a>
-                    <a href="#">Location</a>
-                    <a href="#">Geolocation</a>
-                </div>
-            </li>
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn">Search &#8964</a>
-                <div class="dropdown-content">
-                    <a href="#">Phase 2: From File</a>
-                    <a href="#">Phase 2: Google API</a>
-                </div>
+            <li>
+                <a href="#">
+               <button class="btn navbar-btn" style="background-color: yellow; border-radius: 50%; margin-left: 10px">Analyze</button>
+                </a>
+
             </li>
         </ul>
     </nav>
     <br>
-      <p style="color: yellow;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute"id="title">Welcome to docket science!<i style="font-size:50px" class="fa">&#xf135;</i></p>
+      <div class="results" style="color: yellow;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%"id="title">Welcome to docket science!<i style="font-size:50px" class="fa">&#xf135;</i></p>
       <div id="heading" contenteditable="true"></div>
     <br>
     <div id="content" contenteditable="true"></div>
-    <button id="download" onclick="saveAs()">Download</button>
-    <input type='button' value='Send Data' id='mybutt'>
-    <a href="#" id="downloadLink">Download the inner html</a>
     <input type="button" id="btSave" value="Save Text to File" />
 
 </div>
