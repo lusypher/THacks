@@ -31,7 +31,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="demo_semiotic.html">
                <button class="btn navbar-btn" style="background-color: yellow; border-radius: 50%; margin-left: 10px">Analyze</button>
                 </a>
 
@@ -58,7 +58,21 @@
 </div>
     <br><br><br><br><br><br>
     <div class="results"></div>
-    <p>hello world</p>
+    <table id="myTable"></table>
+<br>
+
+<button type="button" onclick="addRow()">Try it</button>
+
+<script>
+function addRow() {
+  var table = document.getElementById("myTable");
+  var row = table.insertRow(0);
+  var cell1 = row.insertCell(0);
+  cell1.innerHTML = "NEW CELL1";
+  cell2.innerHTML = "NEW CELL2";
+}
+</script>
+
     <br>
 </div>
 <script src="localStorage.js"></script>

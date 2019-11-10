@@ -1,36 +1,41 @@
-import pandas as pd
-from sklearn.feature_extraction.text import TfidfTransformer
-import umap
 import scattertext as st
-from scipy.sparse.linalg import svds
 
-convention_df = st.SampleCorpora.ConventionData2012.get_data()
-convention_df['parse'] = convention_df['text'].apply(st.whitespace_nlp_with_sentences)
-corpus = (st.CorpusFromParsedDocuments(convention_df,
-                                       category_col='party',
-                                       parsed_col='parse')
-          .build()
-          .get_stoplisted_unigram_corpus())
-corpus = corpus.add_doc_names_as_metadata(corpus.get_df()['speaker'])
+movie_df = st.SampleCorpora.RottenTomatoes.get_data()
+#movie_df.category = movie_df.category.apply \
+#(lambda x: {'rotten': 'Negative', 'fresh': 'Positive', 'plot': 'Plot'}[x])
+corpus = st.CorpusFromPandas(
+	movie_df,
+	category_col='category',
+	text_col='text',
+	nlp=st.whitespace_nlp_with_sentences
+).build()
+corpus = corpus.get_unigram_corpus()
 
-embeddings = TfidfTransformer().fit_transform(corpus.get_term_doc_mat())
-u, s, vt = svds(embeddings, k=3, maxiter=20000, which='LM')
-projection = pd.DataFrame({'term': corpus.get_metadata(), 'x': u.T[0], 'y': u.T[1]}).set_index('term')
+semiotic_square = st.SemioticSquare(
+	corpus,
+	category_a='fresh',
+	category_b='rotten',
+	neutral_categories=['plot'],
+	scorer=st.RankDifference(),
+	labels={'not_a_and_not_b': 'Plot Descriptions',
+	        'a_and_b': 'Reviews',
+	        'a_and_not_b': 'Positive',
+	        'b_and_not_a': 'Negative',
+	        'a':'',
+	        'b':'',
+	        'not_a':'',
+	        'not_b':''}
+)
 
-category = 'democrat'
-scores = (corpus.get_category_ids() == corpus.get_categories().index(category)).astype(int)
-html = st.produce_pca_explorer(corpus,
-                               category=category,
-                               category_name='Democratic',
-                               not_category_name='Republican',
-                               metadata=convention_df['speaker'],
-                               width_in_pixels=1000,
-                               show_axes=False,
-                               use_non_text_features=True,
-                               use_full_doc=True,
-                               projection=projection,
-                               scores=scores,
-                               show_top_terms=False)
-file_name = 'demo_pca_documents.html'
-open(file_name, 'wb').write(html.encode('utf-8'))
-print('Open ./%s in Chrome.' % (file_name))
+html = st.produce_semiotic_square_explorer(semiotic_square,
+                                           category_name='fresh',
+                                           not_category_name='rotten',
+                                           x_label='Fresh-Rotten',
+                                           y_label='Plot-Review',
+                                           num_terms_semiotic_square=20,
+                                           neutral_category_name='Plot Description',
+                                           metadata=movie_df['movie_name'])
+
+fn = 'demo_semiotic.html'
+open(fn, 'wb').write(html.encode('utf-8'))
+print('Open ' + fn + ' in Chrome or Firefox.')

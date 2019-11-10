@@ -97,18 +97,20 @@ li.dropdown {
   left: 40%;
   top: 50%;
 }
-.results {
-  background: transparent;
-  position: absolute;
-  left: 40%;
-  top: 50%;
-}
 #btSave {
 
     position: absolute;
     left: 40%;
     top: 98%;
 
+}
+.results {
+  padding-top: 10px;
+  font-size: 12px;
+  background: transparent;
+  position: absolute;
+  left: 20%;
+  top: 40%;
 }
 
 

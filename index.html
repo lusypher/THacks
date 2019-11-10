@@ -35,7 +35,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="demo_semiotic.html">
                <button class="btn navbar-btn" style="background-color: yellow; border-radius: 50%; margin-left: 10px">Analyze</button>
                 </a>
 
@@ -43,7 +43,8 @@
         </ul>
     </nav>
     <br>
-      <div class="results" style="color: yellow;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%"id="title">Welcome to docket science!<i style="font-size:50px" class="fa">&#xf135;</i></p>
+          <p style="color: yellow;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%"id="title">Welcome to docket science!<i style="font-size:50px" class="fa">&#xf135;</i></p>
+
       <div id="heading" contenteditable="true"></div>
     <br>
     <div id="content" contenteditable="true"></div>
@@ -69,7 +70,7 @@
 
         // CONVERT THE TEXT TO A BLOB.
         var textToBLOB = new Blob([Value], { type: 'text/plain' });
-        var sFileName = 'myFile.txt';       // THE FILE IN WHICH THE CONTENTS WILL BE SAVED.
+        var sFileName = (#heading).pa +'.txt';       // THE FILE IN WHICH THE CONTENTS WILL BE SAVED.
 
         var newLink = document.createElement("a");
         newLink.download = sFileName;

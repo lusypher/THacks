@@ -1,4 +1,5 @@
 var searchButton = document.getElementById("searchbar");
+
 var baseurl = "https://www.googleapis.com/customsearch/v1?key=AIzaSyCp1dxZRcPudb_wTmFa3OjetjAYsi21y48&cx=001012682094247960828:uwm8yxbcki7&q=";
 
 searchButton.addEventListener("submit", function(e) {
