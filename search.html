@@ -51,48 +51,24 @@
     <br><br><br><br><br><br><br><br>
     <form id="searchbar" onscroll="fixToTop()" class="example" action="javascript:void(0);">
         <input type="text"  placeholder="Search.." name="search">
-        <button type="submit">Submit</button>
+        <button type="submit" class="btn navbar-btn" style="background-color: white;">Submit</button>
     </form>
 
     <div class="save">
-  <button type="button" onclick="writeJSON()">Export JSON</button>
-  <button type="button" onclick="writeCSV()">Export CSV</button>
-  <button type="button" onclick="writeXML()">Export XML</button>
+  <button class="btn navbar-btn" style=" background-color: indianred;" onclick="writeJSON()">Export JSON</button>
+  <button class="btn navbar-btn" style=" background-color: #4588ba;" onclick="writeCSV()">Export CSV</button>
+  <button class="btn navbar-btn" style=" background-color: yellow;" onclick="writeXML()">Export XML</button>
     <div class="selectors">
-  <button type="button" onclick="selectAll()">Select All</button>
-  <button type="button" onclick="deselectAll()">Deselect All</button>
+  <button class="btn navbar-btn" style=" background-color: white;" onclick="selectAll()">Select All</button>
+  <button class="btn navbar-btn" style=" background-color: white;" onclick="deselectAll()">Deselect All</button>
 </div>
   <a style="display: none; width: fit-content;" href="" id="a" download>Click here to download file</a>
 </div>
     <br><br><br><br><br><br>
     <div class="results"></div>
 <br>
-
-<div id="uploadsection">
-  <p>Choose file to read and then export to download your results: </p>
-  <input type="file" id="upfile" accept=".csv,.json,.xml,.">
-    </div>
-<div class="save">
-  <button type="button" onclick="writeJSON()">Export JSON</button>
-  <button type="button" onclick="writeCSV()">Export CSV</button>
-  <button type="button" onclick="writeXML()">Export XML</button>
-    <div class="selectors">
-  <button type="button" onclick="selectAll()">Select All</button>
-  <button type="button" onclick="deselectAll()">Deselect All</button>
-
-<button type="button" onclick="addRow()">Try it</button>
-        </div>
-</div>
 </div>
 
-<script>
-function addRow() {
-  var table = document.getElementById("myTable");
-  var row = table.insertRow(0);
-  var cell1 = row.insertCell(0);
-  cell1.innerHTML = "NEW CELL1";
-  cell2.innerHTML = "NEW CELL2";
-}
 </script>
 <script src="localStorage.js"></script>
 <script src="particles.js"></script>
