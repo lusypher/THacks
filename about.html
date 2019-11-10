@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
   <title>Docket Science!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" media="screen" href="style.css">
@@ -10,11 +10,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
 </head>
 <body>
 
+<!-- count particles -->
+<!--<div class="count-particles">
+  <span class="js-count-particles">--</span> particles
+</div>-->
 
+<!-- particles.js container -->
 <div id="particles-js">
   <nav id="navbar">
         <ul>
@@ -40,51 +44,22 @@
     </nav>
     <br>
     <p style="color: yellow;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%"id="title">Welcome to</p>
-    <p style="color: indianred;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%; left: 19%">Docket</p>
-    <p style="color: #4588ba;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%; left: 31%">Science</p>
+    <p style="color: indianred;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%; left: 19%">docket</p>
+    <p style="color: #4588ba;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%; left: 31%">science</p>
     <p style="color: yellow;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%; left: 44%">!<i style="font-size:50px" class="fa">&#xf135;</i></p>
-    <br><br><br><br><br><br><br><br>
-    <form id="searchbar" onscroll="fixToTop()" class="example" action="javascript:void(0);">
-        <input type="text"  placeholder="Search.." name="search">
-        <button type="submit">Submit</button>
-    </form>
 
-    <div class="save">
-  <button type="button" onclick="writeJSON()">Export JSON</button>
-  <button type="button" onclick="writeCSV()">Export CSV</button>
-  <button type="button" onclick="writeXML()">Export XML</button>
-    <div class="selectors">
-  <button type="button" onclick="selectAll()">Select All</button>
-  <button type="button" onclick="deselectAll()">Deselect All</button>
-</div>
-  <a style="display: none; width: fit-content;" href="" id="a" download>Click here to download file</a>
-</div>
-    <br><br><br><br><br><br>
-    <div class="results"></div>
-    <table id="myTable"></table>
-<br>
-
-<button type="button" onclick="addRow()">Try it</button>
-
-<script>
-function addRow() {
-  var table = document.getElementById("myTable");
-  var row = table.insertRow(0);
-  var cell1 = row.insertCell(0);
-  cell1.innerHTML = "NEW CELL1";
-  cell2.innerHTML = "NEW CELL2";
-}
-</script>
 
     <br>
+    <p style="position: absolute; top: 50%; left: 45%; font-size: xx-large">Clicks: <a id="clicks">0</a></p>
 </div>
+
+
+
+<!-- scripts -->
 <script src="localStorage.js"></script>
 <script src="particles.js"></script>
 <script src="app.js"></script>
-<script src="selector.js"></script>
-    <script src="write.js"></script>
-    <script src="res.js"></script>
-<script src="search.js"></script>
+
 
 </body>
 </html>

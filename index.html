@@ -23,14 +23,14 @@
   <nav id="navbar">
         <ul>
             <li class="home"><i class="fa">&#xf135;</i></li>
-            <li><a href="#"><button class="btn navbar-btn" style="background-color: yellow; border-radius: 50%;margin-left: 10px">About</button></a></li>
+            <li><a href="about.html"><button class="btn navbar-btn" style="background-color: yellow; border-radius: 50%;margin-left: 10px">About</button></a></li>
             <li>
                 <a href="index.html">
                 <button class="btn navbar-btn" style="background-color: yellow; border-radius: 50%;margin-left: 10px">Create</button>
                 </a>
             </li>
             <li>
-                <a href="toDoList.html">
+                <a href="search.html">
                 <button class="btn navbar-btn" style="background-color: yellow; border-radius: 50%;margin-left: 10px">Search</button>
                 </a>
             </li>
@@ -44,16 +44,17 @@
     </nav>
     <br>
     <p style="color: yellow;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%"id="title">Welcome to</p>
-    <p style="color: indianred;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%; left: 19%">docket</p>
-    <p style="color: #4588ba;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%; left: 31%">science</p>
+    <p style="color: indianred;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%; left: 19%">Docket</p>
+    <p style="color: #4588ba;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%; left: 31%">Science</p>
     <p style="color: yellow;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%; left: 44%">!<i style="font-size:50px" class="fa">&#xf135;</i></p>
 
 
     <br>
     <div id="content" contenteditable="true">Write anything here...</div>
-    <input class="btn navbar-btn" style="background-color: indianred" type="button" id="btSave" value="Save Text to File" />
+    <input class="btn navbar-btn" style="background-color: indianred" type="button" id="btSave" value="Save Text to File" onclick="countClicks()"/>
 
 </div>
+
 <script>
     $(document).ready(function() {
         $('#content').focus();
