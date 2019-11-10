@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <php src="clicks.php"></php>
 </head>
 <body>
 
@@ -23,9 +24,9 @@
   <nav id="navbar">
         <ul>
             <li class="home"><i class="fa">&#xf135;</i></li>
-            <li><a href="about.html"><button class="btn navbar-btn" style="background-color: yellow; border-radius: 50%;margin-left: 10px">About</button></a></li>
+            <li><a href="#"><button class="btn navbar-btn" style="background-color: yellow; border-radius: 50%;margin-left: 10px">About</button></a></li>
             <li>
-                <a href="index.html">
+                <a href="create.html">
                 <button class="btn navbar-btn" style="background-color: yellow; border-radius: 50%;margin-left: 10px">Create</button>
                 </a>
             </li>
@@ -33,7 +34,8 @@
                 <a href="search.html">
                 <button class="btn navbar-btn" style="background-color: yellow; border-radius: 50%;margin-left: 10px">Search</button>
                 </a>
-              
+            </li>
+            <li>
                 <a href="planner.html">
                 <button class="btn navbar-btn" style="background-color: yellow; border-radius: 50%;margin-left: 10px">Plan-et</button>
                 </a>
@@ -48,114 +50,23 @@
     </nav>
     <br>
     <p style="color: yellow;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%"id="title">Welcome to</p>
-    <p style="color: indianred;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%; left: 19%">Docket</p>
-    <p style="color: #4588ba;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%; left: 31%">Science</p>
+    <p style="color: indianred;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%; left: 19%">docket</p>
+    <p style="color: #4588ba;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%; left: 31%">science</p>
     <p style="color: yellow;font-size:50px; text-align: center; background:rgba(100,100,100, 0.0); position: absolute; top: 10%; left: 44%">!<i style="font-size:50px" class="fa">&#xf135;</i></p>
 
 
     <br>
-    <div id="content" contenteditable="true">Write anything here...</div>
-    <input class="btn navbar-btn" style="background-color: indianred" type="button" id="btSave" value="Save Text to File" onclick="clickCounter()"/>
-    <p style="position: absolute; top: 20%; left: 0%; font-size: xx-large">Thank you for saving <a id="clicks">0</a> pieces of paper on earth!</p>
-    <table onclick="window.location='birds.json'" id="myTable" style="position: absolute; top: 35%; left:10%;"></table>
-    <button type="submit" class="btn navbar-btn" style="background-color: rebeccapurple; position: absolute; top: 26%; left: 6%" onclick="newRow()">Create Binder</button>
-
-
-
 
 
 </div>
-<script>
-    function newRow(){
-    var table = document.getElementById("myTable");
-    var row = table.insertRow(0);
-    var cell1 = row.insertCell(0);
-    cell1.innerHTML = "Binder";
-}
-</script>
 
-<script>
-    $(document).ready(function() {
-        $('#content').focus();
 
-        $('#btSave').click(function() {
-
-            if ($('#content').text() != '')
-                saveFile($('#content').text());
-            else
-                alert('No notes to save');
-        });
-    });
-
-    // USING BLOB (BINARY LARGE OBJECT) TO SAVE THE TEXT.
-
-    function saveFile(Value) {
-
-        // CONVERT THE TEXT TO A BLOB.
-        var textToBLOB = new Blob([Value], { type: 'text/plain' });
-        var name = prompt("Please name your file (without extension): ");
-        name = name + ".txt";// THE FILE IN WHICH THE CONTENTS WILL BE SAVED.
-
-        var newLink = document.createElement("a");
-        newLink.download = name
-
-        if (window.webkitURL != null) {
-            newLink.href = window.webkitURL.createObjectURL(textToBLOB);
-        }
-        else {
-            newLink.href = window.URL.createObjectURL(textToBLOB);
-            newLink.style.display = "none";
-            document.body.appendChild(newLink);
-        }
-
-        newLink.click();
-    }
-</script>
-<script>
-function saveAs(filename, allHtml) {
-allHtml =  document.getElementsByClassName('big_wrapper');
-var blob = new Blob([allHtml], {type: 'text/csv'});
-if(window.navigator.msSaveOrOpenBlob) {
-window.navigator.msSaveBlob(blob, filename);
-}
-else{
-var elem = window.document.createElement('a');
-elem.href = window.URL.createObjectURL(blob);
-elem.download = filename;
-document.body.appendChild(elem);
-elem.click();
-document.body.removeChild(elem);
-}
-}
-</script>
 
 <!-- scripts -->
 <script src="localStorage.js"></script>
 <script src="particles.js"></script>
 <script src="app.js"></script>
-<script src="selector.js"></script>
 
-<!-- stats.js -->
-<!--<script src="stats.js"></script>-->
-<script>
-  var count_particles, stats, update;
-  stats = new Stats;
-  stats.setMode(0);
-  stats.domElement.style.position = 'absolute';
-  stats.domElement.style.left = '0px';
-  stats.domElement.style.top = '0px';
-  document.body.appendChild(stats.domElement);
-  count_particles = document.querySelector('.js-count-particles');
-  update = function() {
-    stats.begin();
-    stats.end();
-    if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
-      count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
-    }
-    requestAnimationFrame(update);
-  };
-  requestAnimationFrame(update);
-</script>
 
 </body>
 </html>
